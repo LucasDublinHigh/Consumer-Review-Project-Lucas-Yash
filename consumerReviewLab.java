@@ -102,7 +102,7 @@ public class consumerReviewLab {
             String[] words = iphoneReviews[i].split(" ");
             for (String word : words) {
                 String cleanWord = word.toLowerCase().replaceAll("[^a-z]", ""); // remove punctuation
-                if (adjectives.contains(cleanWord)) {
+                if (adjectives.contains(cleanWord) || reviewScore >= 0) {
                     int index = adjectives.indexOf(cleanWord);
                     double wordScore = ratings.get(index);
                     reviewScore += wordScore;
@@ -124,7 +124,7 @@ public class consumerReviewLab {
             String[] words = androidReviews[i].split(" ");
             for (String word : words) {
                 String cleanWord = word.toLowerCase().replaceAll("[^a-z]", ""); // remove punctuation
-                if (adjectives.contains(cleanWord)) {
+                if (adjectives.contains(cleanWord) || reviewScore >= 0) {
                     int index = adjectives.indexOf(cleanWord);
                     double wordScore = ratings.get(index);
                     reviewScore += wordScore;
@@ -148,4 +148,5 @@ public class consumerReviewLab {
         System.out.println("The Average Review Rating for Android is " + androidReviewRatingAverage); 
     }
 }
+
 
